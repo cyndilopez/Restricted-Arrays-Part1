@@ -1,13 +1,12 @@
-require 'minitest/autorun'
-require 'minitest/reporters'
-require_relative '../lib/restricted_array'
-require_relative '../lib/using_restricted_array'
+require "minitest/autorun"
+require "minitest/reporters"
+require_relative "../lib/restricted_array"
+require_relative "../lib/using_restricted_array"
 
 describe "restricted array" do
   it "length method" do
     size = 5
     my_integer_array = RestrictedArray.new(size)
-
     my_integer_array_length = length(my_integer_array)
 
     my_integer_array_length.must_equal size
@@ -125,7 +124,6 @@ describe "restricted array" do
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
     reverse(my_integer_array, size)
-
     largest = find_largest(my_integer_array, size)
 
     largest.must_equal my_integer_array[0]
@@ -161,6 +159,7 @@ describe "restricted array" do
       my_integer_array[i] = i * 10
     end
     value_to_find = (size - 1) * 10
+    # value_to_find = my_integer_array[5]
 
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
@@ -171,7 +170,7 @@ describe "restricted array" do
     size.times do |i|
       my_integer_array[i] = i * 10
     end
-    value_to_find = (size/2) * 10
+    value_to_find = (size / 2) * 10
 
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
